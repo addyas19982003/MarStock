@@ -1,0 +1,195 @@
+@startuml "Diagramme de Cas d'Usage - Système de Gestion Ministérielle"
+
+!theme plain
+skinparam backgroundColor #FFFFFF
+skinparam actorStyle awesome
+skinparam usecase {
+  BackgroundColor #E8F4FD
+  BorderColor #2196F3
+  FontColor #1565C0
+}
+skinparam actor {
+  BackgroundColor #FFE0B2
+  BorderColor #FF9800
+  FontColor #E65100
+}
+
+title "Diagramme de Cas d'Usage - Système de Gestion Ministérielle"
+
+' Acteurs
+actor "Administrateur" as Admin
+actor "Gestionnaire" as Manager  
+actor "Utilisateur" as User
+actor "Système" as System
+
+' Package Authentification
+package "Authentification" {
+  usecase "Se connecter" as UC1
+  usecase "S'inscrire" as UC2
+  usecase "Se déconnecter" as UC3
+  usecase "Gérer les sessions" as UC4
+  usecase "Valider les permissions" as UC5
+}
+
+' Package Gestion des Employés
+package "Gestion des Employés" {
+  usecase "Consulter la liste des employés" as UC6
+  usecase "Ajouter un employé" as UC7
+  usecase "Modifier un employé" as UC8
+  usecase "Supprimer un employé" as UC9
+  usecase "Rechercher un employé" as UC10
+  usecase "Consulter les statistiques" as UC11
+  usecase "Gérer les départements" as UC12
+  usecase "Gérer les postes" as UC13
+}
+
+' Package Gestion des Marchés
+package "Gestion des Marchés" {
+  usecase "Consulter la liste des marchés" as UC14
+  usecase "Créer un marché" as UC15
+  usecase "Modifier un marché" as UC16
+  usecase "Supprimer un marché" as UC17
+  usecase "Suivre le progrès" as UC18
+  usecase "Gérer les budgets" as UC19
+  usecase "Gérer les livraisons" as UC20
+  usecase "Consulter les statistiques" as UC21
+}
+
+' Package Gestion du Stock
+package "Gestion du Stock" {
+  usecase "Consulter l'inventaire" as UC22
+  usecase "Ajouter un matériel" as UC23
+  usecase "Modifier un matériel" as UC24
+  usecase "Supprimer un matériel" as UC25
+  usecase "Affecter un matériel" as UC26
+  usecase "Gérer les catégories" as UC27
+  usecase "Gérer les fournisseurs" as UC28
+  usecase "Suivre les mouvements" as UC29
+  usecase "Gérer les alertes" as UC30
+}
+
+' Package Tableau de Bord
+package "Tableau de Bord" {
+  usecase "Consulter les statistiques" as UC31
+  usecase "Voir les alertes" as UC32
+  usecase "Consulter les rapports" as UC33
+  usecase "Gérer les notifications" as UC34
+}
+
+' Package Administration
+package "Administration" {
+  usecase "Gérer les utilisateurs" as UC35
+  usecase "Gérer les rôles" as UC36
+  usecase "Configurer le système" as UC37
+  usecase "Consulter les logs" as UC38
+  usecase "Sauvegarder les données" as UC39
+}
+
+' Relations Administrateur
+Admin --> UC1
+Admin --> UC2
+Admin --> UC3
+Admin --> UC6
+Admin --> UC7
+Admin --> UC8
+Admin --> UC9
+Admin --> UC10
+Admin --> UC11
+Admin --> UC12
+Admin --> UC13
+Admin --> UC14
+Admin --> UC15
+Admin --> UC16
+Admin --> UC17
+Admin --> UC18
+Admin --> UC19
+Admin --> UC20
+Admin --> UC21
+Admin --> UC22
+Admin --> UC23
+Admin --> UC24
+Admin --> UC25
+Admin --> UC26
+Admin --> UC27
+Admin --> UC28
+Admin --> UC29
+Admin --> UC30
+Admin --> UC31
+Admin --> UC32
+Admin --> UC33
+Admin --> UC34
+Admin --> UC35
+Admin --> UC36
+Admin --> UC37
+Admin --> UC38
+Admin --> UC39
+
+' Relations Gestionnaire
+Manager --> UC1
+Manager --> UC3
+Manager --> UC6
+Manager --> UC7
+Manager --> UC8
+Manager --> UC10
+Manager --> UC11
+Manager --> UC14
+Manager --> UC15
+Manager --> UC16
+Manager --> UC18
+Manager --> UC19
+Manager --> UC20
+Manager --> UC21
+Manager --> UC22
+Manager --> UC23
+Manager --> UC24
+Manager --> UC26
+Manager --> UC27
+Manager --> UC28
+Manager --> UC29
+Manager --> UC30
+Manager --> UC31
+Manager --> UC32
+Manager --> UC33
+Manager --> UC34
+
+' Relations Utilisateur
+User --> UC1
+User --> UC3
+User --> UC6
+User --> UC10
+User --> UC14
+User --> UC18
+User --> UC21
+User --> UC22
+User --> UC31
+User --> UC32
+User --> UC34
+
+' Relations Système
+System --> UC4
+System --> UC5
+System --> UC30
+System --> UC32
+System --> UC34
+System --> UC38
+
+' Include/Extend Relations
+UC1 ..> UC4 : <<include>>
+UC2 ..> UC4 : <<include>>
+UC7 ..> UC5 : <<include>>
+UC8 ..> UC5 : <<include>>
+UC9 ..> UC5 : <<include>>
+UC15 ..> UC5 : <<include>>
+UC16 ..> UC5 : <<include>>
+UC17 ..> UC5 : <<include>>
+UC23 ..> UC5 : <<include>>
+UC24 ..> UC5 : <<include>>
+UC25 ..> UC5 : <<include>>
+UC35 ..> UC5 : <<include>>
+UC36 ..> UC5 : <<include>>
+
+UC30 ..> UC32 : <<extend>>
+UC29 ..> UC30 : <<include>>
+UC26 ..> UC29 : <<include>>
+
+@enduml 

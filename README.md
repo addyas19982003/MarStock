@@ -2,7 +2,7 @@
 
 Application de gestion complète pour les ministères avec gestion des employés, marchés, stock et livraisons.
 
-##  Démarrage Rapide
+## Démarrage Rapide
 
 ### Prérequis
 - Node.js 18+ 
@@ -21,7 +21,7 @@ npm run setup
 npm run dev
 ```
 
-## 🔑 Comptes de Test
+## Comptes de Test
 
 | Email | Mot de passe | Rôle |
 |-------|--------------|------|
@@ -29,7 +29,7 @@ npm run dev
 | manager@ministere.gov.ma | password123 | Gestionnaire |
 | user@ministere.gov.ma | password123 | Utilisateur |
 
-## 📋 Fonctionnalités
+## Fonctionnalités
 
 - ✅ Gestion des employés avec statistiques
 - ✅ Gestion des marchés avec suivi des livraisons
@@ -39,7 +39,7 @@ npm run dev
 - ✅ Audit trail complet
 - ✅ Permissions granulaires
 
-## 🛠️ Scripts Disponibles
+## Scripts Disponibles
 
 ```bash
 # Démarrage automatique complet
